@@ -20,6 +20,7 @@ li {
   margin: 0;
   padding: 0;
   color: rgb(135, 135, 135);
+  text-transform: capitalize; /* start some text with capital letter */
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
