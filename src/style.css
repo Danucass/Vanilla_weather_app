@@ -19,13 +19,15 @@ li {
   list-style: none; /* remove the points from the paragraphs */
   margin: 0;
   padding: 0;
-  color: rgb(135, 135, 135);
-  text-transform: capitalize; /* start some text with capital letter */
+  color: rgb(135, 135, 135);  
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
 }
 
+li:first-letter {
+  text-transform: capitalize; /* start li first letter with capital */
+}
 .weather-box-wrapper {
   max-width: 600px; /* make the "weather-box" and "small" the same size*/
   margin: 30px auto;
