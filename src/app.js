@@ -31,6 +31,7 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
   // we round temperature and find the temperature doing console.log(response) and in console going through data, main, temp //
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   // we find the city name doing console.log(response) and in console going through data, name //
@@ -42,11 +43,19 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   // convert date (dt) to miliseconds //
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  // to get the weather icons go to openweather "How to get icon URL" //
+  // changing the source (src) of the attribute (icon) to (,) the URL of the icon and change the icon name (10d) for the icon destiny place (response.data.weather[0].icon) //
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  // updating the weather description depending on the city//
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
 // making an API call to openweather map API and then getting the result and then populating the HTML with the data they give us back. //
 let apiKey = "59ce39f42345d96674d2542886d2eb2e";
-let city = "Porto";
+let city = "Bahamas";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 // fetch the results of the URL //
