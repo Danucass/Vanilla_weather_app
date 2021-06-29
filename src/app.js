@@ -53,10 +53,26 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-// making an API call to openweather map API and then getting the result and then populating the HTML with the data they give us back. //
-let apiKey = "59ce39f42345d96674d2542886d2eb2e";
-let city = "Bahamas";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function search(city) {
+  // making an API call to openweather map API and then getting the result and then populating the HTML with the data they give us back. //
+  let apiKey = "59ce39f42345d96674d2542886d2eb2e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  // fetch the results of the URL //
+  axios.get(apiUrl).then(displayTemperature);
+}
 
-// fetch the results of the URL //
-axios.get(apiUrl).then(displayTemperature);
+function handleSubmit(event) {
+  // preventing the page from reloading //
+  event.preventDefault();
+  // ask for a city //
+  let cityInputElement = document.querySelector("#city-input");
+  //console.log(cityInputElement.value); //
+  // give result of the typed city //
+  search(cityInputElement.value);
+}
+
+search("Porto");
+
+// linking the search (handleSubmit). Make sure this sure will be controled by JS and not by HTML //
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
