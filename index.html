@@ -4,8 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
-    <!-- link para nova folha css-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,40 +11,55 @@
       crossorigin="anonymous"
     />
     <!-- link para Bootstrap-->
+    <link rel="stylesheet" href="src/style.css" />
+    <!-- link para nova folha css-->
+    <!-- é importante ter o css depois do bootstrap para o programa dar prioridade ao nosso css, caso contrario vai sobrepor as propriedades do bootstrap às que escrevemos-->
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
-      <div class="weather-box">
-        <h1>Porto, Portugal</h1>
-        <ul>
-          <li>Tuesday, 11:16</li>
-          <li>Clear</li>
-        </ul>
-        <div class="row">
-          <div class="col-6">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-              alt="Clear"
-            />18°C | °F
-          </div>
-          <div class="col-6">
+      <div class="weather-box-wrapper">
+        <div class="weather-box">
+          <div class="overview">
+            <!-- add space between "Clear" and the img/temperature-->
+            <h1>Porto, Portugal</h1>
             <ul>
-              <li>Precipitation: 1%</li>
-              <li>Humidity: 63%</li>
-              <li>Wind: 10km/h</li>
+              <li>Tuesday, 11:16</li>
+              <li>Clear</li>
             </ul>
           </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="clearfix weather-temperature">
+                <!-- "clearfix" = align things next to each other-->
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="Clear"
+                  class="float-left"
+                />
+                <!-- "float-left" = align things next to each other and have a little bit more control-->
+                <strong>18</strong
+                ><span class="units">°C | <a href="#">°F</a></span>
+              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Precipitation: 1%</li>
+                <li>Humidity: 63%</li>
+                <li>Wind: 10km/h</li>
+              </ul>
+            </div>
+          </div>
         </div>
+        <small>
+          <a
+            href="https://github.com/Danucass/Vanilla_weather_app"
+            target="_blank"
+            >Open-source code</a
+          >
+          by Daniela Duarte
+        </small>
       </div>
-      <small>
-        <a
-          href="https://github.com/Danucass/Vanilla_weather_app"
-          target="_blank"
-          >Open-source code</a
-        >
-        by Daniela Duarte
-      </small>
     </div>
     <script src="src/app.js"></script>
     <!-- link para nova folha js-->
