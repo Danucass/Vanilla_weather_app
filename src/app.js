@@ -44,8 +44,10 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
+// making an API call to openweather map API and then getting the result and then populating the HTML with the data they give us back. //
 let apiKey = "59ce39f42345d96674d2542886d2eb2e";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Porto&appid=${apiKey}&units=metric`;
+let city = "Porto";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 // fetch the results of the URL //
 axios.get(apiUrl).then(displayTemperature);
