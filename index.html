@@ -11,6 +11,8 @@
       crossorigin="anonymous"
     />
     <!-- link para Bootstrap-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- link para axios-->
     <link rel="stylesheet" href="src/style.css" />
     <!-- link para nova folha css-->
     <!-- é importante ter o css depois do bootstrap para o programa dar prioridade ao nosso css, caso contrario vai sobrepor as propriedades do bootstrap às que escrevemos-->
@@ -22,10 +24,10 @@
         <div class="weather-box">
           <div class="overview">
             <!-- add space between "Clear" and the img/temperature-->
-            <h1>Porto, Portugal</h1>
+            <h1 id="city"></h1>
             <ul>
               <li>Tuesday, 11:16</li>
-              <li>Clear</li>
+              <li id="description"></li>
             </ul>
           </div>
           <div class="row">
@@ -38,15 +40,15 @@
                   class="float-left"
                 />
                 <!-- "float-left" = align things next to each other and have a little bit more control-->
-                <strong>18</strong
+                <strong id="temperature"></strong
                 ><span class="units">°C | <a href="#">°F</a></span>
               </div>
             </div>
             <div class="col-6">
               <ul>
-                <li>Precipitation: 1%</li>
-                <li>Humidity: 63%</li>
-                <li>Wind: 10km/h</li>
+                <!-- Precipitation deleted from here, to be working on later-->
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span>km/h</li>
               </ul>
             </div>
           </div>
