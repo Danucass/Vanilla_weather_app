@@ -32,8 +32,10 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+  // already declared in the bottom //
+  celsiusTemperature = response.data.main.temp;
   // we round temperature and find the temperature doing console.log(response) and in console going through data, main, temp //
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   // we find the city name doing console.log(response) and in console going through data, name //
   cityElement.innerHTML = response.data.name;
   // we find the weather description doing console.log(response) and in console going through data, weather, 0 {array}, description //
@@ -71,8 +73,43 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-search("Porto");
+function displayFahrenheitTemperature(event) {
+  // this is a link so to prevent just to not open the browser //
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  // remove the active class from the celsius link and add from fahrenheit //
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  // calculate fahrenheit temperature //
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  // replace the celsius temperature for fahrenheit temperature //
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  // add the active class from the celsius link and remove from fahrenheit //
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+// global variable //
+let celsiusTemperature = null;
 
 // linking the search (handleSubmit). Make sure this sure will be controled by JS and not by HTML //
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+// convert temperature degrees from Celsius to Fahrenheit//
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+// whenever this is being clicked show fahrenheit temperature//
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+// convert temperature degrees //
+let celsiusLink = document.querySelector("#celsius-link");
+// whenever this is being clicked show fahrenheit temperature//
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+search("Porto");

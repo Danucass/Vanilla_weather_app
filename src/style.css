@@ -19,7 +19,7 @@ li {
   list-style: none; /* remove the points from the paragraphs */
   margin: 0;
   padding: 0;
-  color: rgb(135, 135, 135);  
+  color: rgb(135, 135, 135);
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -65,4 +65,20 @@ li:first-letter {
   font-size: 16px;
   top: -32px;
   display: inline-block;
+  text-decoration-line: none;
+}
+
+.weather-temperature a {
+  text-decoration: none;
+  cursor: default;
+}
+
+.weather-temperature .active {
+  color: rgb(33, 33, 33);
+  text-decoration: none;
+}
+
+/* remove the underlined celsius degrees while the cursor is upon*/
+.weather-temperature .active:hover {
+  text-decoration: none;
 }
