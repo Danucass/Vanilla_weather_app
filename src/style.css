@@ -44,9 +44,11 @@ li:first-letter {
 }
 
 .back-color {
+  /* giving opacity to the background. Is equivalent to the colour neutral fade out of the background */
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 5px;
 }
+
 .overview {
   margin-bottom: 20px;
 }
@@ -89,4 +91,23 @@ li:first-letter {
 /* remove the underlined celsius degrees while the cursor is upon*/
 .weather-temperature .active:hover {
   text-decoration: none;
+}
+
+.footer {
+  text-align: center;
+  color: black;
+  margin-top: 180px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.back-img-source {
+  text-align: center;
+  font-size: smaller;
+  color: black;
+  margin-top: 5px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
