@@ -1,9 +1,13 @@
 body {
   font-family: arial, sans-serif;
+  background-image: url("images/background.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 h1 {
-  color: #878787;
+  color: black;
   font-size: 24px;
   font-weight: 100;
   line-height: 28px;
@@ -19,7 +23,7 @@ li {
   list-style: none; /* remove the points from the paragraphs */
   margin: 0;
   padding: 0;
-  color: rgb(135, 135, 135);
+  color: black;
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -39,6 +43,10 @@ li:first-letter {
   border-radius: 5px;
 }
 
+.back-color {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+}
 .overview {
   margin-bottom: 20px;
 }
