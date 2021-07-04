@@ -23,6 +23,41 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  /* we can inject HTML code because innerHTML accept it, so here is easy to replicate the forecast*/
+  /* to replicate the days, we cannot copy and paste this code below because the code will run and will be replaced for the previous content. So is better to use a loop*/
+  /* will store the HTML of the forecast*/
+  /* looping through each day of the array*/
+  let days = ["Sun", "Mon", "Tue", "Wed"];
+
+  let forecastHTML = `<div class="row">`;
+  /* its going through each of the days and put each day inside of the variable day*/
+  /* appending a new column to HTML*/
+  days.forEach(function (day) {
+    /* inside, is going to modify the content of what is inside forecastHTML variable and its adding the all block of HTML below */
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
+        <div class="weather-forecast-date">${day}</div>
+          <img
+            src="http://openweathermap.org/img/wn/04d@2x.png"
+            alt=""
+            width="42"
+          />
+        <div class="weather-forecast-temperatures">
+          <span class="weather-forecast-temperature-max">18°</span>
+          <span class="weather-forecast-temperature-min">12°</span>
+        </div>
+      </div>
+    `;
+  });
+  /* concatenating the existing HTML and putting it inside of forecastElement which was selected before*/
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
   // selecting the element that has an id temperature (same to the following elements) //
   let temperatureElement = document.querySelector("#temperature");
@@ -113,3 +148,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Porto");
+displayForecast();
