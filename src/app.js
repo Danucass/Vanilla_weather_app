@@ -23,13 +23,14 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   /* we can inject HTML code because innerHTML accept it, so here is easy to replicate the forecast*/
   /* to replicate the days, we cannot copy and paste this code below because the code will run and will be replaced for the previous content. So is better to use a loop*/
   /* will store the HTML of the forecast*/
   /* looping through each day of the array*/
-  let days = ["Sun", "Mon", "Tue", "Wed"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
 
   let forecastHTML = `<div class="row">`;
   /* its going through each of the days and put each day inside of the variable day*/
@@ -56,6 +57,15 @@ function displayForecast() {
   /* concatenating the existing HTML and putting it inside of forecastElement which was selected before*/
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "59ce39f42345d96674d2542886d2eb2e";
+  /* we give the coordinates */
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  /* we say to axios, "hey, can you go and get this apiUrl and once you have the response go and display the forecast"  */
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayTemperature(response) {
@@ -88,6 +98,8 @@ function displayTemperature(response) {
   );
   // updating the weather description depending on the city//
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  /* go and get the forecast and I will give you the coordinates, latitude and longitude */
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -148,4 +160,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Porto");
-displayForecast();
