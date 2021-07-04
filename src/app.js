@@ -23,36 +23,51 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForecast(response) {
-  console.log(response.data.daily);
+  /* if I would like to see the weather by hours I should do response.data.hourly*/
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   /* we can inject HTML code because innerHTML accept it, so here is easy to replicate the forecast*/
   /* to replicate the days, we cannot copy and paste this code below because the code will run and will be replaced for the previous content. So is better to use a loop*/
   /* will store the HTML of the forecast*/
-  /* looping through each day of the array*/
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
 
   let forecastHTML = `<div class="row">`;
-  /* its going through each of the days and put each day inside of the variable day*/
+  /* its going to loop through the object at response.data.daily and get "dt"*/
   /* appending a new column to HTML*/
-  days.forEach(function (day) {
-    /* inside, is going to modify the content of what is inside forecastHTML variable and its adding the all block of HTML below */
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      /* inside, is going to modify the content of what is inside forecastHTML variable and its adding the all block of HTML below */
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2">
-        <div class="weather-forecast-date">${day}</div>
+        <div class="weather-forecast-date">${formatDay(forecastDay.dt)}</div>
           <img
-            src="http://openweathermap.org/img/wn/04d@2x.png"
+            src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png"
             alt=""
             width="42"
           />
         <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max">18°</span>
-          <span class="weather-forecast-temperature-min">12°</span>
+          <span class="weather-forecast-temperature-max">${Math.round(
+            forecastDay.temp.max
+          )}°</span>
+          <span class="weather-forecast-temperature-min">${Math.round(
+            forecastDay.temp.min
+          )}°</span>
         </div>
       </div>
     `;
+    }
   });
   /* concatenating the existing HTML and putting it inside of forecastElement which was selected before*/
   forecastHTML = forecastHTML + `</div>`;
