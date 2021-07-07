@@ -4,6 +4,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  background-size: 100%;
 }
 
 input.form-control {
@@ -54,7 +55,7 @@ li:first-letter {
 
 .back-color {
   /* giving opacity to the background. Is equivalent to the colour neutral fade out of the background */
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 5px;
 }
 
@@ -108,7 +109,7 @@ li:first-letter {
   margin-top: 90px;
   border: 1px solid #dadde1;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .back-img-source {
@@ -122,11 +123,11 @@ li:first-letter {
 }
 
 .back-img-source:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-color:hover {
-  color: rgba(21, 115, 71);
+  color: rgb(21, 115, 71);
 }
 
 .weather-forecast {
