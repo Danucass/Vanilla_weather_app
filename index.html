@@ -25,7 +25,7 @@
           <form id="search-form" class="mb-3">
             <!-- mb-5 = margin bottom 5-->
             <div class="row">
-              <div class="col-9">
+              <div class="col-6">
                 <input
                   type="search"
                   placeholder="Type a city ..."
@@ -41,6 +41,14 @@
                   class="btn btn-success w-100"
                 />
                 <!-- w-100 = width 100-->
+              </div>
+              <div class="col-3">
+                <button
+                  class="btn btn-success w-100"
+                  id="current-location-button"
+                >
+                  Current
+                </button>
               </div>
             </div>
           </form>
@@ -76,15 +84,27 @@
           <div class="weather-forecast" id="forecast"></div>
         </div>
         <div class="footer">
-          <small>
-            <a
-              href="https://github.com/Danucass/Vanilla_weather_app"
-              target="_blank"
-              class="footer-color"
-              >Open-source code</a
-            >
-            by Daniela Duarte
-          </small>
+          <div class="row">
+            <small>
+              Open-source code by
+              <a
+                href="https://www.linkedin.com/in/danielafduarte/"
+                target="_blank"
+                class="footer-color"
+                >Daniela Duarte</a
+              >
+              <!-- 👩 -->
+              👩‍💻
+            </small>
+            <small>
+              <a
+                href="https://github.com/Danucass/Vanilla_weather_app"
+                target="_blank"
+                class="footer-color"
+                >GitHub Repository</a
+              >
+            </small>
+          </div>
         </div>
       </div>
       <span class="back-img-source">
