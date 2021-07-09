@@ -125,9 +125,16 @@ function search(city) {
   axios.get(apiUrl).then(displayTemperature);
 }
 
+function searchLocation(position) {
+  let apiKey = "59ce39f42345d96674d2542886d2eb2e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  // fetch the results of the URL //
+  axios.get(apiUrl).then(displayTemperature);
+}
+
 function getCurrentLocation(event) {
   event.preventDefault();
-  navigator.geolocation.getCurrentPosition(getForecast);
+  navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
 function handleSubmit(event) {
@@ -183,4 +190,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 // whenever this is being clicked show fahrenheit temperature//
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-search("Porto");
+search("Arouca");

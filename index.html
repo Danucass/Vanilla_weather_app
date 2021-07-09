@@ -13,10 +13,16 @@
     <!-- link para Bootstrap-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- link para axios-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css"
+      integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="src/style.css" />
     <!-- link para nova folha css-->
     <!-- é importante ter o css depois do bootstrap para o programa dar prioridade ao nosso css, caso contrario vai sobrepor as propriedades do bootstrap às que escrevemos-->
-    <title>Weather App</title>
+    <title>Highs and Lows 🌄</title>
   </head>
   <body>
     <div class="container">
@@ -44,6 +50,7 @@
               </div>
               <div class="col-3">
                 <button
+                  type="button"
                   class="btn btn-success w-100"
                   id="current-location-button"
                 >
@@ -93,8 +100,7 @@
                 class="footer-color"
                 >Daniela Duarte</a
               >
-              <!-- 👩 -->
-              👩‍💻
+              👩 &#127477&#127481
             </small>
             <small>
               <a
@@ -103,6 +109,13 @@
                 class="footer-color"
                 >GitHub Repository</a
               >
+              /
+              <a
+                href="https://github.com/Danucass/Vanilla_weather_app/blob/master/LICENSE"
+                target="_blank"
+                class="footer-color"
+                >MIT License
+              </a>
             </small>
           </div>
         </div>
@@ -112,7 +125,7 @@
           <a
             href="https://ponte516arouca.com/en/"
             target="_blank"
-            class="footer-color"
+            class="footer-color b-i-s"
             >Background image source</a
           >
         </small>
